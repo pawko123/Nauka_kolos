@@ -59,7 +59,25 @@ int main(){
     cout<<licz(6)<<'\n';
     cout<<licz(7,2)<<'\n';
     cout<<licz('z')<<'\n';
-    kompozycja2 tab(3);
-    cout<<tab;
+    /*dziedziczenie
+     kompozycja2 tab(3);
+    cout<<tab;*/
+    // przy przypisywaniu wartosci funkcji pochodnych mozna przypisac tylko objekty klasy pochodnej do klasy oryginalnej,
+    //na odwrot nie mozna
+    //py=&x; tak nie wolno!! poniewaz obiekt py jest wskaznikiem na klase Y ktora jest pochodna klasy X ktorej obiektem jest x
+    px=&y;
+    //wywola sie funkcja f() klasy Y poniewaz funkcja f() w klasie X ma wartosc virtual wiec kompilator patrzy czy w Y znajduje sie ta
+    // funkcja i ja znajduje, jakby w funkcji Y nie bylo funkcji f() to program wywolalby funkcje f() klasy y
+    //przez to funkcje wirtualne nakladaja dodatkowy czas podczas wykonywania programu, poniewaz wykonuja pozne wiazanie
+    px->f();
+    //funkcja f1() nie ma virtual wiec zawsze wykona sie funkcja klasy wskaznika- px jest X* wiec wywola X.f1(), a py jest Y* wiec wywola Y.f1()
+    px->f1();
+    py=&z;
+    py->f();
+    py->f1();
+    B b(6,1);
+    C c(2,5,2);
+    wypisz(b);
+    wypisz(c);
     return 0;
 }
