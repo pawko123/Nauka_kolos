@@ -3,8 +3,11 @@
 #include"konstruktory.cpp"
 #include"statyczne.cpp"
 #include "operatory.cpp"
+#include "kompozycja.cpp"
+#include "dziedziczenie.cpp"
 using namespace std;
 int statyczna::y=1;
+int liczba::statyczna=0;
 int main(){
     /*int x=5;
     int y=4;
@@ -52,5 +55,11 @@ int main(){
     konstruktory operator3(5);
     konstruktory operator4(operator1);
     operator4=operator2;
+    class liczba licz;
+    cout<<licz(6)<<'\n';
+    cout<<licz(7,2)<<'\n';
+    cout<<licz('z')<<'\n';
+    kompozycja2 tab(3);
+    cout<<tab;
     return 0;
 }
