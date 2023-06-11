@@ -3,7 +3,7 @@ public:
     int x,y;
     kompozycja1(int i,int j):x(i),y(j){}
     kompozycja1():x(0),y(0){}
-    friend ostream &operator<<(ostream& out,kompozycja1& parametr){
+    friend ostream &operator<<(ostream& out,const kompozycja1 parametr){
         out<<parametr.x<<' '<<parametr.y<<'\n';
         return out;
     }
@@ -26,7 +26,7 @@ public:
     void operator[](int index){
         cout<<tablica[index];
     }
-    friend ostream &operator<<(ostream& out,kompozycja2 &parametr){
+    friend ostream &operator<<(ostream& out,const kompozycja2 parametr){
         for(int i=0;i<parametr.rozmiar;i++){
             out<<parametr.tablica[i];
         }

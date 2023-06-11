@@ -56,3 +56,16 @@ public:
         cout<<"funkcja f1() klasy Z\n";
     }
 }z,*pz;
+//destruktory wirtualne
+//destruktor wirtualny zapewnia ze bedzie wywolany dekontruktor funkcji pochodnych
+class bazowa {
+public:
+    bazowa(){cout << "bazowa()\n";}
+    virtual ~bazowa() {cout << "~bazowa()\n"; }
+};
+class pochodna : public bazowa {
+public:
+    pochodna(){cout<<"pochodna()\n";}
+    ~pochodna() {cout << "~pochodna()\n";}
+};
+

@@ -56,6 +56,9 @@ int main(){
     konstruktory operator4(operator1);
     operator4=operator2;
     class liczba licz;
+//    cout<<++licz;
+//    cout<<licz++;
+//    cout<<licz;
     cout<<licz(6)<<'\n';
     cout<<licz(7,2)<<'\n';
     cout<<licz('z')<<'\n';
@@ -79,5 +82,11 @@ int main(){
     C c(2,5,2);
     wypisz(b);
     wypisz(c);
+    //przy tworzeniu obiektu wskaznika na klase bazowa wykona nam sie kontruktor klasy bazowej i pochodnej
+    //a przy usunieciu wskaznika dzieki destruktorowi wirtualnemu wywola sie dekonstruktor bazowy i pochodny
+    //jakbysmy usuneli virtual ze wskaznika wywolalby sie tylko dekostruktor funkcji bazowej co byloby problemem
+    //gdyby funkcja pochodna posiadal tablice lub jakis inny wskaznik
+    bazowa* dekonstruktor = new pochodna;
+    delete dekonstruktor;
     return 0;
 }

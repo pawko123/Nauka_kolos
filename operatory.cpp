@@ -6,6 +6,7 @@ public:
     liczba():x(5){}
     int getx(){return x;}
     void setx(int x){this->x=x;}
+    //przypisanie
     void operator=(const liczba &oryginal){
         this->x=oryginal.x;
     }
@@ -71,6 +72,16 @@ public:
     void operator*=(liczba& parametr){
         this->x*=parametr.x;
     }
+    //pre i post inkrementacja/dekrementacja ( aby miec dekrementacje zmieniamy ++ na --
+    liczba operator++(){
+        this->x++;
+        return *this;
+   }
+    liczba operator++(int) {
+        liczba temp = *this;
+        ++*this;
+        return temp;
+    }
     //operator () ,jesli chcemy zeby strukture wywolac jak funkcje
     int operator()(int i){
         statyczna+=i;
@@ -85,16 +96,12 @@ public:
         return statyczna;
     }
     //operatory << >>
-    friend ostream& operator<<(ostream& out,liczba &parametr){
+    friend ostream& operator<<(ostream& out,const liczba parametr){
         out<<parametr.x;
         return out;
     }
     friend istream& operator>>(istream& in,liczba &parametr){
         in>>parametr.x;
         return in;
-    }
-    //przypisanie
-    void operator=(liczba &parametr){
-        this->x=parametr.x;
     }
 };
