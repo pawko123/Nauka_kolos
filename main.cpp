@@ -89,6 +89,7 @@ int main(){
     //gdyby funkcja pochodna posiadal tablice lub jakis inny wskaznik
     bazowa* dekonstruktor = new pochodna;
     delete dekonstruktor;
+    //szablony
     cout<<dodawanie(4.2,5.3)<<'\n';
     cout<<dodawanie(4,5)<<'\n';
     cout<<dodawanie('0','1')<<'\n';
