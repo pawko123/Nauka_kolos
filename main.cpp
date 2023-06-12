@@ -5,6 +5,7 @@
 #include "operatory.cpp"
 #include "kompozycja.cpp"
 #include "dziedziczenie.cpp"
+#include "szablony.cpp"
 using namespace std;
 int statyczna::y=1;
 int liczba::statyczna=0;
@@ -88,5 +89,29 @@ int main(){
     //gdyby funkcja pochodna posiadal tablice lub jakis inny wskaznik
     bazowa* dekonstruktor = new pochodna;
     delete dekonstruktor;
+    cout<<dodawanie(4.2,5.3)<<'\n';
+    cout<<dodawanie(4,5)<<'\n';
+    cout<<dodawanie('0','1')<<'\n';
+   // char *tablica_znakow=stworz<char>(5);
+    float tablica_zp[]={3.4,2.2,3.1,5.2,1.1};
+    sortuj(tablica_zp,sizeof(tablica_zp)/sizeof (float));
+    cout<<tablica_zp[0]<<'\n';
+    cout<<tablica_zp[1]<<'\n';
+    cout<<tablica_zp[2]<<'\n';
+    //jak widac funkcje te dzialaja dla int,float i char oraz innych ktore mozna posortowac
+    /*int *tablica_int=stworz<int>(10);
+    sortuj(tablica_int,sizeof(*tablica_int)/sizeof (int));
+    cout<<tablica_int[0]<<'\n';
+    cout<<tablica_int[1]<<'\n';
+    cout<<tablica_int[2]<<'\n';
+     */
+    //tworzenie stosu i wywolanie funkcji
+    stos<int> stosik;
+    stosik.push(4);
+    stosik.push(5);
+    cout<<stosik.ilosc()<<'\n';
+    stos<kompozycja1> stos_klasy(4);
+    stos_klasy.push(kompozycja1(4,3));
+    stos_klasy.zobacz();
     return 0;
 }

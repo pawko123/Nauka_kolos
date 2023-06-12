@@ -3,6 +3,14 @@ public:
     int x,y;
     kompozycja1(int i,int j):x(i),y(j){}
     kompozycja1():x(0),y(0){}
+    void operator=(int x){
+        this->x=x;
+        this->y=x;
+    }
+    void operator=(kompozycja1 & oryginal){
+        this->x=oryginal.x;
+        this->y=oryginal.y;
+    }
     friend ostream &operator<<(ostream& out,const kompozycja1 parametr){
         out<<parametr.x<<' '<<parametr.y<<'\n';
         return out;
