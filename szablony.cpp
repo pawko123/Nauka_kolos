@@ -28,7 +28,7 @@ template<typename T> class stos{
         stos(int roz):rozmiar(roz),tab(new T[roz]),liczba_obiektow(0){}
         ~stos(){delete tab;}
         void push(T parametr){
-            if(liczba_obiektow<=rozmiar-1){
+            if(liczba_obiektow<rozmiar){
                 tab[liczba_obiektow]=parametr;
                 liczba_obiektow++;
             }

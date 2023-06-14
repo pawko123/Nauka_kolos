@@ -18,6 +18,14 @@ int main(){
     cout<<wynik(x,y,mnozenie)<<endl;
     cout<<wynik(x,y,dzielenie)<<endl;
      */
+    //tablica wskaznikow do funkcji
+    int (*funkcje[4])(int, int);
+    funkcje[0]=dodaj;
+    funkcje[1]=odejmij;
+    funkcje[2]=mnozenie;
+    funkcje[3]=dzielenie;
+    int wynik=funkcje[2](5,2);
+    cout<<wynik;
     //wskaznik na stala int, wskazanie na normalnego int tez dziala ¯\_(ツ)_/¯
     const int *p;
     const int stala1=4;
