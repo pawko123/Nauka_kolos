@@ -7,7 +7,7 @@ public:
     konstruktory():x(5),wsk(new int[10]),rozmiar(10){}
     konstruktory(int liczba,int rozmiar):x(liczba),wsk(new int[rozmiar]),rozmiar(rozmiar){}
     //konstruktor konwertujacy - konwertuje typ jakiejs zmiennej na obiekt klasy, w tym przypadku uzywa liczby calkowitej aby utworzyc obiekt klasy konstruktory
-    konstruktory(int rozmiar):x(1),wsk(new int[rozmiar]),rozmiar(rozmiar){}
+    explicit konstruktory(int rozmiar):x(1),wsk(new int[rozmiar]),rozmiar(rozmiar){}
     //konstruktor kopiujacy - służy do tworzenia nowego obiektu na podstawie istniejącego obiektu tego samego typu oraz jesli chcemy uniknac usuniecia wskaznika dla dwoch obiektow zamiast jednego
     konstruktory(const konstruktory &oryginal){
         x=oryginal.x;

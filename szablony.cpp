@@ -13,7 +13,7 @@ template<typename T>T* stworz(int roz){
     return wsk;
 }
 //sortuj tabele typu T
-template<typename T>void sortuj(T table[],int roz){
+template<typename T>void sortuj(T *table,int roz){
     cout<<"Sortuje tabele typu "<< typeid(T).name()<<'\n';
     sort(table,table+roz);
 }
@@ -37,7 +37,7 @@ template<typename T> class stos{
             }
         }
         void pop(){
-            if(liczba_obiektow=0){
+            if(liczba_obiektow==0){
                 cout<<"Stos jest pusty\n";
             } else{
                 tab[liczba_obiektow]=0;
@@ -45,7 +45,11 @@ template<typename T> class stos{
             }
         }
         void zobacz(){
-            cout<<tab[liczba_obiektow-1];
+            if(liczba_obiektow==0){
+                cout<<"Stos jest pusty\n";
+            } else{
+                cout<<tab[liczba_obiektow-1];
+            }
         }
         int ilosc(){
             return liczba_obiektow;
@@ -59,3 +63,26 @@ template<typename T> class stos{
             }
         }
     };
+//szablony wraz z dziedziczeniem
+template <typename T>
+class klasa_bazowa
+{
+public:
+    T wartosc;
+    klasa_bazowa(const T& wartosc) : wartosc(wartosc) {}
+    virtual void wyswietl()
+    {
+        cout << "Wartosc klasy bazowej: " << wartosc <<"\n";
+    }
+};
+
+template <typename T>
+class klasa_pochodna : public klasa_bazowa<T>
+{
+public:
+    klasa_pochodna(const T& wartosc) : klasa_bazowa<T>(wartosc) {}
+    void wyswietl()
+    {
+        cout << "Wartosc klasy pochodnej: " << this->wartosc * 2 <<"\n";
+    }
+};
